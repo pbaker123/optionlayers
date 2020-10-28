@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Option Set Screen Buttons</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <div class="scope">
+      <p class="label">Scope:</p>
+      <input type="radio" name="scope" id="boss" value="boss" checked>
+      <label for="boss">BOSS</label>
+      <br>
+      <input type="radio" name="scope" id="sdk" value="sdk">
+      <label for="sdk">SDK</label>
+    </div>
+    <div class="type">
+      <p class="label">BOSS Type:</p>
+      <input type="radio" name="type" id="enterprise" value="eboss" checked>
+      <label for="enterprise">Enterprise BOSS</label>
+      <br>
+      <input type="radio" name="type" id="instore" value="boss">
+      <label for="instore">In-store BOSS</label>
+    </div>
+    <div class="location">
+      <label for="location" id="locationLabel">Location:</label>
+      <select id="location" name="location">
+        <option value="eboss">BOSS Layer</option>
+        <option value="store">Store Layer</option>
+      </select>
+    </div>
+    <div class="optionSets">
+      <div class="asset" value="subset1">
+        <p>Asset</p>
+      </div>
+      <div class="nrsc" value="subset2">
+        <p>NRSC</p>
+      </div>
+      <div class="businessPartner" value="subset2">
+        <p>Business Partner</p>
+      </div>
+      <div class="customer" value="subset2">
+        <p>Customer</p>
+      </div>
+      <div class="store" value="subset3">
+        <p>Store</p>
+      </div>
+      <div class="terminal" value="subset4">
+        <p>Terminal</p>
+      </div>
+      <div class="developmentOverride" value="all">
+        <p value="all">Development Override</p>
+      </div>
+      <div class="itemIdentifyList" value="noview">
+        <p>Item Identify List</p>
+      </div>
+      <div class="itemIdentifyData" value="noview">
+        <p>Item Identify Data</p>
+      </div>
+      <div class="storeConfigurations" value="noview">
+        <p>Store Configurations</p>
+      </div>
+      <div class="bossConfigurations" value="noview">
+        <p>Boss Configurations</p>
+      </div>
+      <div class="consolidatedItemSecurity" value="noview">
+        <p>Consolidated Item Security</p>
+      </div>
+    </div>
+    <div class="optionViews">
+      <p class="optionSetLabel">
+        Option views available in the selected option set:
+      </p>
+      <div class="tabContainer">
+        <div class="allTabsContainer">
+          <div class="tab deviceManager">
+            DeviceManager Options
+          </div>
+          <div class="tab miniLane">
+            Mini Lane Options
+          </div>
+          <div class="tab integration">
+            Integration Options
+          </div>
+          <div class="tab testing">
+            Testing Options
+          </div>
+          <div class="tab storeTab">
+            Store Options
+          </div>
+          <div class="tab security">
+            Security Options
+          </div>
+          <div class="tab terminalTab">
+            Terminal Options
+          </div>
+          <div class="tab corporate">
+            Corporate Options
+          </div>
+          <div class="noview">
+            <p>This option set directly edits data in the database, and does not have any option views.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>

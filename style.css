@@ -1,0 +1,143 @@
+main {
+  height: 520px;
+  width: 1000px;
+  background-image: url(images/background.png);
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+  margin: 5px 0px 5px 0px;
+  pointer-events: none;
+}
+
+.scope {
+  height: 60px;
+  width: 210px;
+  border: 3px dotted black;
+  position: relative;
+  top: 295px;
+  left: 528px;
+}
+
+.label {
+  font-size: 10px;
+  margin: 0px 0px 5px 0px;
+}
+
+.type {
+  height: 60px;
+  width: 210px;
+  border: 3px dotted black;
+  position: relative;
+  top: 229px;
+  left: 762px;
+}
+
+.location {
+  height: 30px;
+  width: 443px;
+  position: relative;
+  top: -62px;
+  left: 539px;
+}
+
+#locationLabel {
+  padding-right: 50px;
+}
+
+#location {
+  width: 100px;
+}
+
+.optionSets {
+  width: 488px;
+  height: 305px;
+  position: relative;
+  top: -64px;
+  left: 19px;
+}
+
+.developmentOverride {
+  display: none;
+}
+
+.optionViews {
+  width: 452px;
+  height: 168px;
+  position: relative;
+  top: -363px;
+  left: 529px;
+}
+
+.tabContainer {
+  height: 144px;
+  width: 452px;
+  position: relative;
+  top: 6px;
+  left: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.allTabsContainer {
+  height: auto;
+  width: 400px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  top: 22px;
+  left: 25px;
+}
+
+.tab {
+  height: 23px;
+  background-color: #A0A0A5;
+  line-height: 25px;
+  text-align: center;
+  border: 1px solid #5F5F5F;
+  width: 198px;
+}
+
+.deviceManager,
+.miniLane,
+.integration,
+.testing,
+.storeTab,
+.security,
+.terminalTab,
+.corporate,
+.noview,
+.optionSetLabel {
+  display: none;
+}
+
+.asset,
+.nrsc,
+.businessPartner,
+.customer,
+.store,
+.terminal,
+.developmentOverride,
+.itemIdentifyList,
+.itemIdentifyData,
+.storeConfigurations,
+.bossConfigurations,
+.consolidatedItemSecurity {
+  padding: 4px 0px 1px 0px;
+}
+
+.asset > p,
+.nrsc > p,
+.businessPartner > p,
+.customer > p,
+.store > p,
+.terminal > p,
+.developmentOverride > p,
+.itemIdentifyList > p,
+.itemIdentifyData > p,
+.storeConfigurations > p,
+.bossConfigurations > p,
+.consolidatedItemSecurity > p {
+  margin: 0px;
+}
