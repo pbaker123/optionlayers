@@ -20,121 +20,174 @@ var bossType = "eboss"; /* eboss / boss */
 var locationSetting = "eboss"; /* eboss / store */
 
 body.addEventListener("input", function(e) {
-  const name = e.target.name;
-  if (name === "scope") {
-    scope = e.target.value;
-  } else if (name === "type") {
-    bossType = e.target.value;
-  } else if (name === "location") {
-    locationSetting = e.target.value;
-  };
+  setGlobalVariables(e);
   resetOptionSetFormat();
+  clearOptionSetList();
   displayOptionSetList();
 });
 
 body.addEventListener("click", function(e) {
-  var clickValue;
   if (e.target.attributes.value) {
-    clickValue = e.target.attributes.value.value;
+    resetOptionSetFormat();
+    switch (e.target.attributes.value.value) {
+      case "all":
+        highlightOptionSet(e.target.className);
+        displayOptionViewTabs(tabSelectionLists.all);
+        break;
+      case "subset1":
+        highlightOptionSet(e.target.className);
+        displayOptionViewTabs(tabSelectionLists.subset1);
+        break;
+      case "subset2":
+        highlightOptionSet(e.target.className);
+        displayOptionViewTabs(tabSelectionLists.subset2);
+        break;
+      case "subset3":
+        highlightOptionSet(e.target.className);
+        displayOptionViewTabs(tabSelectionLists.subset3);
+        break;
+      case "subset4":
+        highlightOptionSet(e.target.className);
+        displayOptionViewTabs(tabSelectionLists.subset4);
+        break;
+      case "iil":
+        highlightOptionSet(e.target.className);
+        displayDbOptions("iil");
+        break;
+      case "iid":
+        highlightOptionSet(e.target.className);
+        displayDbOptions("iid");
+        break;
+      case "sc":
+        highlightOptionSet(e.target.className);
+        displayDbOptions("sc");
+        break;
+      case "bc":
+        highlightOptionSet(e.target.className);
+        displayDbOptions("bc");
+        break;
+      case "cis":
+        highlightOptionSet(e.target.className);
+        displayDbOptions("cis");
+        break;
+    }
   } else {
     return;
-  };
-  if (clickValue === "all") {
-    resetOptionSetFormat();
-    highlightOptionSet(e);
-    displayOptionViewTabs(tabSelectionLists.all);
-  } else if (clickValue === "subset1") {
-    resetOptionSetFormat();
-    highlightOptionSet(e);
-    displayOptionViewTabs(tabSelectionLists.subset1);
-  } else if (clickValue === "subset2") {
-    resetOptionSetFormat();
-    highlightOptionSet(e);
-    displayOptionViewTabs(tabSelectionLists.subset2);
-  } else if (clickValue === "subset3") {
-    resetOptionSetFormat();
-    highlightOptionSet(e);
-    displayOptionViewTabs(tabSelectionLists.subset3);
-  } else if (clickValue === "subset4") {
-    resetOptionSetFormat();
-    highlightOptionSet(e);
-    displayOptionViewTabs(tabSelectionLists.subset4);
-  } else if (clickValue === "noview") {
-    resetOptionSetFormat();
-    highlightOptionSet(e);
-    document.querySelector(".noview").style.display = "block";
-    document.querySelector(".optionSetLabel").style.display = "block";
   };
 });
 
 function displayOptionSetList () {
-  for (i = 0; i < optionSetLists.ebossSdk.length; i++) {
-    document.querySelector("." + optionSetLists.ebossSdk[i]).style.display = "none";
-  }; 
-  /* If instoreboss hide location, determine if boss or sdk loop through that option set list */
-  if (bossType === "boss") {
-    document.querySelector("#location").style.display = "none";
-    document.querySelector("#locationLabel").style.display = "none";
-    if (scope === "boss") {
+  switch (bossType) {
+    case "boss":
+      setBossOptionSets();
+      break;
+    case "eboss":
+      setEBossOptionSets();
+      break;
+  };
+};
+
+function setBossOptionSets () {
+  document.querySelector("#location").style.display = "none";
+  document.querySelector("#locationLabel").style.display = "none";
+  switch (scope) {
+    case "boss":
       for (i = 0; i < optionSetLists.boss.length; i++) {
         document.querySelector("." + optionSetLists.boss[i]).style.display = "block";
-      }; 
-      return;
-    } else if (scope === "sdk") {
+      };
+      break;
+    case "sdk":
       for (i = 0; i < optionSetLists.bossSdk.length; i++) {
         document.querySelector("." + optionSetLists.bossSdk[i]).style.display = "block";
-      }; 
-      return;
-    } else {
-      return;
-    } 
-    return;
-  } else if (bossType === "eboss") {
-    document.querySelector("#location").style.display = "inline";
-    document.querySelector("#locationLabel").style.display = "inline";
-    if (scope === "boss" && locationSetting === "eboss") {
+      };
+      break;
+  };
+};
+
+function setEBossOptionSets () {
+  document.querySelector("#location").style.display = "inline";
+  document.querySelector("#locationLabel").style.display = "inline";
+  switch (locationSetting) {
+    case "eboss":
+      setEBossBossLayer();
+      break;
+    case "store":
+      setEBossStoreLayer();
+      break;
+  };
+};
+
+function setEBossBossLayer () {
+  switch (scope) {
+    case "boss":
       for (i = 0; i < optionSetLists.eboss.length; i++) {
         document.querySelector("." + optionSetLists.eboss[i]).style.display = "block";
       }; 
-      return;
-    } else if (scope === "boss" && locationSetting === "store") {
-      for (i = 0; i < optionSetLists.ebossStore.length; i++) {
-        document.querySelector("." + optionSetLists.ebossStore[i]).style.display = "block";
-      }; 
-      return;
-    } else if (scope === "sdk" && locationSetting === "eboss") {
+      break;
+    case "sdk":
       for (i = 0; i < optionSetLists.ebossSdk.length; i++) {
         document.querySelector("." + optionSetLists.ebossSdk[i]).style.display = "block";
       }; 
-      return;
-    } else if (scope === "sdk" && locationSetting === "store") {
+      break;
+  };
+};
+
+function setEBossStoreLayer () {
+  switch (scope) {
+    case "boss":
+      for (i = 0; i < optionSetLists.ebossStore.length; i++) {
+        document.querySelector("." + optionSetLists.ebossStore[i]).style.display = "block";
+      }; 
+      break;
+    case "sdk":
       for (i = 0; i < optionSetLists.ebossStoreSdk.length; i++) {
         document.querySelector("." + optionSetLists.ebossStoreSdk[i]).style.display = "block";
       }; 
-    };
-    return;
+      break;
   };
 };
+
+function clearOptionSetList () {
+  for (i = 0; i < optionSetLists.ebossSdk.length; i++) {
+    document.querySelector("." + optionSetLists.ebossSdk[i]).style.display = "none";
+  }; 
+}
 
 function resetOptionSetFormat () {
   for (i=0; i < tabSelectionLists.all.length; i++) {
     document.querySelector("." + tabSelectionLists.all[i][0]).style.display = "none";
   };
-
-  document.querySelector(".noview").style.display = "none";
-  document.querySelector(".optionSetLabel").style.display = "none";
-
   for (i=0; i < optionSetLists.ebossSdk.length; i++) {
     const classSelection = "." + optionSetLists.ebossSdk[i];
     document.querySelector(classSelection).style.backgroundColor = "";
     document.querySelector(classSelection).style.color = "#000000";
   };
+  document.querySelector(".dbOptionLabel").style.display = "none";
+  document.querySelector(".optionSetLabel").style.display = "none";
+  document.querySelector(".iil").style.display = "none";
+  document.querySelector(".iid").style.display = "none";
+  document.querySelector(".sc").style.display = "none";
+  document.querySelector(".bc").style.display = "none";
+  document.querySelector(".cis").style.display = "none"; 
 };
 
-function highlightOptionSet (e) {
-  const targetClass = "." + e.target.className;
-  document.querySelector(targetClass).style.backgroundColor = "#3399ff";
-  document.querySelector(targetClass).style.color = "#FFFFFF";
+function setGlobalVariables (e) {
+  switch (e.target.name) {    
+    case "scope":
+      scope = e.target.value;
+      break;
+    case "type":
+      bossType = e.target.value;
+      break;
+    case "location":
+      locationSetting = e.target.value;
+      break;
+  }; 
+};
+
+function highlightOptionSet (targetClass) {
+  document.querySelector("." + targetClass).style.backgroundColor = "#3399ff";
+  document.querySelector("." + targetClass).style.color = "#FFFFFF";
 };
 
 function displayOptionViewTabs (tabs) {
@@ -143,5 +196,10 @@ function displayOptionViewTabs (tabs) {
     document.querySelector("." + tabs[i][0]).style.display = "block";
     document.querySelector("." + tabs[i][0]).style.width = tabs[i][1];
     document.querySelector("." + tabs[i][0]).style.order = i + 1;
-  }
+  };
 };
+
+function displayDbOptions (dbOption) {
+  document.querySelector(".dbOptionLabel").style.display = "block";
+  document.querySelector("." + dbOption).style.display = "block";
+}

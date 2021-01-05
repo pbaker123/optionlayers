@@ -53,19 +53,19 @@
       <div class="developmentOverride" value="all">
         <p value="all">Development Override</p>
       </div>
-      <div class="itemIdentifyList" value="noview">
+      <div class="itemIdentifyList" value="iil">
         <p>Item Identify List</p>
       </div>
-      <div class="itemIdentifyData" value="noview">
+      <div class="itemIdentifyData" value="iid">
         <p>Item Identify Data</p>
       </div>
-      <div class="storeConfigurations" value="noview">
+      <div class="storeConfigurations" value="sc">
         <p>Store Configurations</p>
       </div>
-      <div class="bossConfigurations" value="noview">
+      <div class="bossConfigurations" value="bc">
         <p>Boss Configurations</p>
       </div>
-      <div class="consolidatedItemSecurity" value="noview">
+      <div class="consolidatedItemSecurity" value="cis">
         <p>Consolidated Item Security</p>
       </div>
     </div>
@@ -99,11 +99,35 @@
           <div class="tab corporate">
             Corporate Options
           </div>
-          <div class="noview">
-            <p>This option set directly edits data in the database, and does not have any option views.</p>
-          </div>
         </div>
       </div>
+    </div>
+    <div class="dbOptions">
+      <p class="dbOptionLabel"> 
+        This option set directly changes values in the database:
+      </p>
+      <div class="alldbOptionContainer">
+        <div class="iil">
+          <b>Item Identify List</b> works in conjunction with Item Identify Data to determine how CHEC handles data collected from a scanner.
+          <br><br>
+          Item Identify List defines the sorting algorithm that identifies into which Item Identify Data bucket the scan data belongs.
+        </div>
+        <div class="iid">
+          <b>Item Identify Data</b> works in conjunction with Item Identify List to determine how CHEC handles data collected from a scanner.
+          <br><br>
+          Item Identify Data defines the Item Processing Type, Special Handling Instructions, Assistant Required, and Exclusive Mode (full-lane only).
+        </div>
+        <div class="sc">
+          <b>Store Configurations</b> allow configuration of the replication intervals, replication "quiet time", the local currency and measurement system for the store.
+        </div>
+        <div class="bc">
+          <b>BOSS Configurations</b> allow configuration of the History Analysis Profile and Data Retention Policies.
+        </div>
+        <div class="cis">
+          <b>Consolidated Item Security</b> allows configuration of PLU ranges to be included in the consolidated item security profiles at the Enterprise BOSS level.
+        </div>
+      </div>
+      
     </div>
   </main>
   <script src="main.js"></script>

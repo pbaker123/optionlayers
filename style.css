@@ -76,6 +76,17 @@ p {
   left: 529px;
 }
 
+.dbOptions {
+  width: 452px;
+  height: 168px;
+  position: relative;
+  top: -531px;
+  left: 529px;
+  display: block;
+}
+
+
+
 .tabContainer {
   height: 144px;
   width: 452px;
@@ -96,6 +107,16 @@ p {
   left: 25px;
 }
 
+.alldbOptionContainer {
+  height: auto;
+  width: 400px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  top: 10px;
+  left: 25px;
+  position: relative;
+}
+
 .tab {
   height: 23px;
   background-color: #A0A0A5;
@@ -113,8 +134,13 @@ p {
 .security,
 .terminalTab,
 .corporate,
-.noview,
-.optionSetLabel {
+.optionSetLabel,
+.dbOptionLabel,
+.iil,
+.iid,
+.sc,
+.bc,
+.cis {
   display: none;
 }
 
