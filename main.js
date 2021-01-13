@@ -19,7 +19,7 @@ var scope = "boss"; /* boss / sdk */
 var bossType = "eboss"; /* eboss / boss */
 var locationSetting = "eboss"; /* eboss / store */
 
-body.addEventListener("input", function(e) {
+body.addEventListener("click", function(e) {
   setGlobalVariables(e);
   resetOptionSetFormat();
   clearOptionSetList();

@@ -1,3 +1,31 @@
+html {
+  transform: matrix(0.2,0,0,0.2,-80,-210);
+}
+
+@media only screen and (min-width: 367px) {
+  html {
+    transform: matrix(0.36,0,0,0.36,-115,-170);
+  }
+}
+
+@media only screen and (min-width: 384px) {
+  html {
+    transform: matrix(0.38,0,0,0.38,-115,-165);
+  }
+}
+
+@media only screen and (min-width: 563px) {
+  html {
+    transform: matrix(0.56,0,0,0.56,-125,-115);
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  html {
+    transform: scale(1);
+  }
+}
+
 body {
   overflow: hidden;
   cursor: pointer;
